@@ -33,7 +33,7 @@
                 <v-list dense>
 
                     @foreach($nav as $n)
-                        @if($n->navType==\App\Components\Core\Menu\MenuItem::$NAV_TYPE_NAV)
+                        @if($n->navType==\App\Components\Core\Menu\MenuItem::$NAV_TYPE_NAV && $n->visible)
                             <v-list-tile :to="{name:'{{$n->routeName}}'}" :exact="false">
                                 <v-list-tile-action>
                                     <v-icon>{{$n->icon}}</v-icon>
@@ -117,6 +117,9 @@
                 </v-card-actions>
             </v-card>
         </v-dialog>
+
+        <!-- the progress bar -->
+        <vue-progress-bar></vue-progress-bar>
 
     </template>
 
